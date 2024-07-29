@@ -1,0 +1,43 @@
+<project>
+	<actions/>
+	<description>test1</description>
+	<keepDependencies>false</keepDependencies>
+	<properties/>
+	<scm class="hudson.scm.NullSCM"/>
+	<canRoam>true</canRoam>
+	<disabled>false</disabled>
+	<blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+	<blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+	<triggers>
+		<jenkins.triggers.ReverseBuildTrigger>
+			<spec/>
+			<upstreamProjects>ascii-test-job</upstreamProjects>
+			<threshold>
+				<name>SUCCESS</name>
+				<ordinal>0</ordinal>
+				<color>BLUE</color>
+				<completeBuild>true</completeBuild>
+			</threshold>
+		</jenkins.triggers.ReverseBuildTrigger>
+	</triggers>
+	<concurrentBuild>false</concurrentBuild>
+	<builders>
+		<hudson.plugins.copyartifact.CopyArtifact plugin="copyartifact@749.vfb_dca_a_9b_6549">
+			<project>ascii-test-job</project>
+			<filter>advice.message</filter>
+			<target/>
+			<includeBuildNumberInTargetPath>false</includeBuildNumberInTargetPath>
+			<excludes/>
+			<selector class="hudson.plugins.copyartifact.StatusBuildSelector">
+				<stable>true</stable>
+			</selector>
+			<doNotFingerprintArtifacts>false</doNotFingerprintArtifacts>
+		</hudson.plugins.copyartifact.CopyArtifact>
+		<hudson.tasks.Shell>
+			<command># Deploy sudo apt-get install cowsay -y cat advice.message | cowsay -f $(ls /usr/share/cowsay/cows | shuf -n 1)</command>
+			<configuredLocalRules/>
+		</hudson.tasks.Shell>
+	</builders>
+	<publishers/>
+	<buildWrappers/>
+</project>
