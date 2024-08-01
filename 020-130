@@ -1,0 +1,62 @@
+<org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject plugin="workflow-multibranch@791.v28fb_f74dfca_e">
+	<properties>
+		<io.jenkins.blueocean.rest.impl.pipeline.credential.BlueOceanCredentialsProvider_-FolderPropertyImpl plugin="blueocean-pipeline-scm-api@1.27.14">
+			<domain plugin="credentials@1371.vfee6b_095f0a_3">
+				<name>blueocean-folder-credential-domain</name>
+				<description>Blue Ocean Folder Credentials domain</description>
+				<specifications/>
+			</domain>
+			<user>dasher-admin</user>
+			<id>git:f1de9e489ba88cb15968b97f40f59e8ef0da5ca03ad1f37fc13a2aa45a2512a9</id>
+		</io.jenkins.blueocean.rest.impl.pipeline.credential.BlueOceanCredentialsProvider_-FolderPropertyImpl>
+	</properties>
+	<folderViews class="jenkins.branch.MultiBranchProjectViewHolder" plugin="branch-api@2.1178.v969d9eb_c728e">
+		<owner class="org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject" reference="../.."/>
+	</folderViews>
+	<healthMetrics/>
+	<icon class="jenkins.branch.MetadataActionFolderIcon" plugin="branch-api@2.1178.v969d9eb_c728e">
+		<owner class="org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject" reference="../.."/>
+	</icon>
+	<orphanedItemStrategy class="com.cloudbees.hudson.plugins.folder.computed.DefaultOrphanedItemStrategy" plugin="cloudbees-folder@6.942.vb_43318a_156b_2">
+		<pruneDeadBranches>true</pruneDeadBranches>
+		<daysToKeep>-1</daysToKeep>
+		<numToKeep>-1</numToKeep>
+		<abortBuilds>false</abortBuilds>
+	</orphanedItemStrategy>
+	<triggers/>
+	<disabled>false</disabled>
+	<sources class="jenkins.branch.MultiBranchProject$BranchSourceList" plugin="branch-api@2.1178.v969d9eb_c728e">
+		<data>
+			<jenkins.branch.BranchSource>
+				<source class="jenkins.plugins.git.GitSCMSource" plugin="git@5.2.2">
+					<id>blueocean</id>
+					<remote>http://localhost:3000/siddharth/jenkins-hello-world</remote>
+					<credentialsId>git:f1de9e489ba88cb15968b97f40f59e8ef0da5ca03ad1f37fc13a2aa45a2512a9</credentialsId>
+					<traits>
+						<jenkins.plugins.git.traits.BranchDiscoveryTrait/>
+						<jenkins.plugins.git.traits.CleanBeforeCheckoutTrait>
+							<extension class="hudson.plugins.git.extensions.impl.CleanBeforeCheckout">
+								<deleteUntrackedNestedRepositories>false</deleteUntrackedNestedRepositories>
+							</extension>
+						</jenkins.plugins.git.traits.CleanBeforeCheckoutTrait>
+						<jenkins.plugins.git.traits.CleanAfterCheckoutTrait>
+							<extension class="hudson.plugins.git.extensions.impl.CleanCheckout">
+								<deleteUntrackedNestedRepositories>false</deleteUntrackedNestedRepositories>
+							</extension>
+						</jenkins.plugins.git.traits.CleanAfterCheckoutTrait>
+						<jenkins.plugins.git.traits.LocalBranchTrait>
+							<extension class="hudson.plugins.git.extensions.impl.LocalBranch">
+								<localBranch>**</localBranch>
+							</extension>
+						</jenkins.plugins.git.traits.LocalBranchTrait>
+					</traits>
+				</source>
+			</jenkins.branch.BranchSource>
+		</data>
+		<owner class="org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject" reference="../.."/>
+	</sources>
+	<factory class="org.jenkinsci.plugins.workflow.multibranch.WorkflowBranchProjectFactory">
+		<owner class="org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject" reference="../.."/>
+		<scriptPath>Jenkinsfile</scriptPath>
+	</factory>
+</org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject>
