@@ -50,7 +50,7 @@
 			</userRemoteConfigs>
 			<branches>
 				<hudson.plugins.git.BranchSpec>
-					<name>*/${params.BRANCH_NAME}</name>
+					<name>*/${BRANCH_NAME}</name>
 				</hudson.plugins.git.BranchSpec>
 			</branches>
 			<doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
