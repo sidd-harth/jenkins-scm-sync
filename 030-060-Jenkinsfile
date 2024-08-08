@@ -1,0 +1,20 @@
+pipeline {
+  agent any
+  stages {
+    stage('Checkout') {
+      steps {
+        git(branch: 'feature', url: 'http://localhost:3000/dasher-org/solar-system/')
+      }
+    }
+
+    stage('Install Dependencies') {
+      steps {
+        sh 'npm install'
+      }
+    }
+
+  }
+  tools {
+    nodejs 'nodejs-vm-20'
+  }
+}
